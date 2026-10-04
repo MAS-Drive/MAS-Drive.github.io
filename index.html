@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1F4B3A">
+<title>Lee conmigo · MÁS Maravillas</title>
+<meta name="description" content="Read-along for I Want a Pet! / ¡Quiero una mascota! Spanish first, English paired, plus major world languages. Included with the book.">
+<style>
+  :root { --ink:#1c1915; --paper:#f7f1e6; --card:#fffdf8; --line:#e4d9c8; --green:#1f4b3a; --gold:#a9783b; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family: Georgia, Palatino, serif; background:var(--paper); color:var(--ink); }
+  header, main, footer { width:min(720px, calc(100% - 28px)); margin:0 auto; }
+  header { padding:22px 0 8px; }
+  .brand { display:flex; justify-content:space-between; align-items:baseline; }
+  .series { letter-spacing:.14em; text-transform:uppercase; font-size:12px; color:var(--green); font-family:system-ui,sans-serif; font-weight:700; }
+  h1 { font-size:32px; line-height:1.05; margin:8px 0 0; }
+  h1 span { display:block; font-size:22px; }
+  .sub { font-family:system-ui,sans-serif; font-size:14px; line-height:1.45; color:#4d463d; }
+  button, select { font-family:system-ui,sans-serif; border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:10px 14px; font-size:14px; }
+  button { cursor:pointer; }
+  button.active, button.primary { background:var(--green); color:white; border-color:var(--green); }
+  button.primary { border-radius:14px; font-size:18px; padding:14px 18px; font-weight:700; }
+  .modes, .langs, .transport, .pager, .parts { font-family:system-ui,sans-serif; }
+  .modes, .langs, .transport, .parts { display:flex; gap:8px; flex-wrap:wrap; }
+  .langs { overflow-x:auto; flex-wrap:nowrap; padding-bottom:6px; }
+  .langs button { white-space:nowrap; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px; margin:12px 0; }
+  .page-kicker { font-family:system-ui,sans-serif; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); font-weight:700; }
+  .spoken { font-size:20px; line-height:1.45; margin:8px 0 0; }
+  .spoken.alt { font-size:17px; color:#4d463d; }
+  .spoken.rtl { direction:rtl; text-align:right; }
+  .pager { display:flex; gap:8px; align-items:center; margin-top:12px; }
+  .pager input { flex:1; accent-color:var(--green); }
+  .status, footer { font-family:system-ui,sans-serif; }
+  .status { font-size:13px; color:#4d463d; min-height:1.2em; margin-top:8px; }
+  footer { font-size:12px; color:#6b6256; padding:8px 0 36px; line-height:1.5; }
+  a { color:#2f6b54; }
+  .parts button { padding:7px 10px; font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><div class="series">MÁS Maravillas · Lee conmigo</div><div aria-hidden="true">∞</div></div>
+  <h1>¡Quiero una mascota! <span>I Want a Pet!</span></h1>
+  <p class="sub">Spanish first, English beside it. Tap Listen, then color the page you are on. Other languages are here for families around the world. Included with the book. Not a separate purchase.</p>
+  <div class="modes" id="modes">
+    <button class="active" data-mode="juntos">Español y English</button>
+    <button data-mode="es">Solo español</button>
+    <button data-mode="en">English only</button>
+    <button data-mode="one">This language</button>
+  </div>
+  <div class="langs" id="langs"></div>
+</header>
+<main>
+  <section class="card">
+    <div class="page-kicker" id="kicker">Page 1 · Open</div>
+    <p class="spoken" id="mainLine"></p>
+    <p class="spoken alt" id="altLine"></p>
+    <div class="transport">
+      <button class="primary" id="play">Listen</button>
+      <button id="pause">Pause</button>
+      <button id="prev">Back</button>
+      <button id="next">Next page</button>
+    </div>
+    <div class="pager"><span id="pageLabel">1</span><input id="slider" type="range" min="1" max="70" value="1"></div>
+    <div class="parts" id="parts"></div>
+    <div class="status" id="status">Tap Listen. Phones will not start audio until you tap.</div>
+  </section>
+  <section class="card">
+    <div class="page-kicker">For families and teachers</div>
+    <p class="spoken" style="font-size:16px">Avery and Parker learn that a pet is not a toy. Care takes patience, practice, questions, teamwork, and a trusted adult. Read together. Color together. Use the activity pages more than once.</p>
+    <p class="spoken alt">Avery y Parker aprenden que una mascota no es un juguete. Cuidar pide paciencia, práctica, preguntas, trabajo en equipo y un adulto de confianza.</p>
+  </section>
+</main>
+<footer>
+  Written and illustrated by Bryan Paul Myers · MÁS Publishing, an imprint of Myers Accelerated Solutions · ISBN 9798177552231 · First edition, 2026 · Release October 27, 2026.<br>
+  Printed Spanish and English are the book. Other languages are listen-along help, not a replacement of the printed text.<br>
+  This page is the QR target: <a href="https://mas-drive.github.io/">mas-drive.github.io</a>
+</footer>
+<script>
+const LANGS = [["es","Español","es-MX"],["en","English","en-US"],["eses","Español (España)","es-ES"],["pt","Português","pt-BR"],["fr","Français","fr-FR"],["zh","中文","zh-CN"],["hi","हिन्दी","hi-IN"],["ar","العربية","ar"],["de","Deutsch","de-DE"],["ja","日本語","ja-JP"],["ko","한국어","ko-KR"],["it","Italiano","it-IT"],["vi","Tiếng Việt","vi-VN"],["tl","Filipino","fil-PH"]];
+let book=null, mode="juntos", lang="es", idx=0, playing=false;
+const $=(id)=>document.getElementById(id);
+function pages(){ return book.pages; }
+function current(){ return pages()[idx]; }
+function bcp(id){ return (LANGS.find(l=>l[0]===id)||LANGS[0])[2]; }
+function setStatus(t){ $("status").textContent=t; }
+function renderLangs(){ $("langs").innerHTML = LANGS.map(([id,label])=>`<button data-lang="${id}" class="${id===lang?"active":""}">${label}</button>`).join(""); }
+function render(){
+  const p=current();
+  $("kicker").textContent=`Page ${p.n} · ${p.part}`;
+  $("pageLabel").textContent=p.n; $("slider").value=p.n;
+  const primary = mode==="en"?"en": mode==="one"?lang:"es";
+  const alt = mode==="juntos"?"en":"";
+  $("mainLine").textContent=p[primary]||p.es;
+  $("mainLine").classList.toggle("rtl", primary==="ar");
+  $("altLine").textContent=alt?p[alt]:"";
+  $("altLine").style.display=alt?"block":"none";
+  document.documentElement.lang=bcp(primary);
+}
+function jumpToPageNumber(n){ const i=pages().findIndex(p=>p.n===Number(n)); idx=i>=0?i:0; render(); }
+function pickVoice(code){
+  const voices=speechSynthesis.getVoices();
+  return voices.find(v=>v.lang&&v.lang.toLowerCase()===code.toLowerCase()) || voices.find(v=>v.lang&&v.lang.toLowerCase().startsWith(code.split("-")[0].toLowerCase())) || null;
+}
+function speak(text, code){
+  return new Promise((resolve)=>{ if(!text) return resolve(); const u=new SpeechSynthesisUtterance(text); u.lang=code; u.rate=0.92; const v=pickVoice(code); if(v) u.voice=v; u.onend=resolve; u.onerror=resolve; speechSynthesis.speak(u); });
+}
+async function playFrom(start){
+  if(!book) return; playing=true; $("play").textContent="Listening";
+  for(let i=start;i<pages().length;i++){
+    if(!playing) break; idx=i; render(); const p=current(); setStatus(`Page ${p.n}. Color while you listen.`);
+    if(mode==="juntos"){ await speak(p.es,"es-MX"); if(!playing) break; await speak(p.en,"en-US"); }
+    else if(mode==="es"){ await speak(p.es,"es-MX"); }
+    else if(mode==="en"){ await speak(p.en,"en-US"); }
+    else { await speak(p[lang]||p.en, bcp(lang)); }
+    if(!playing) break; await new Promise(r=>setTimeout(r,350));
+  }
+  playing=false; $("play").textContent="Listen"; if(playing===false) setStatus("Paused or finished. Tap Listen to continue this page.");
+}
+$("modes").onclick=(e)=>{ const b=e.target.closest("button"); if(!b) return; mode=b.dataset.mode; [...$("modes").children].forEach(x=>x.classList.toggle("active", x===b)); render(); };
+$("langs").onclick=(e)=>{ const b=e.target.closest("button"); if(!b) return; lang=b.dataset.lang; mode=(lang==="es")?"juntos":(lang==="en"?"en":"one"); [...$("modes").children].forEach(x=>x.classList.toggle("active", x.dataset.mode===mode)); renderLangs(); render(); };
+$("play").onclick=()=>{ speechSynthesis.cancel(); playFrom(idx); };
+$("pause").onclick=()=>{ playing=false; speechSynthesis.cancel(); $("play").textContent="Listen"; setStatus("Paused. Tap Listen to continue this page."); };
+$("next").onclick=()=>{ if(idx<pages().length-1) idx++; render(); };
+$("prev").onclick=()=>{ if(idx>0) idx--; render(); };
+$("slider").oninput=()=>jumpToPageNumber($("slider").value);
+const parts=[["Open",1],["Dream",9],["Help",17],["Explore",29],["Connect",37],["Care",49],["Close",67]];
+$("parts").innerHTML=parts.map(([name,n])=>`<button data-jump="${n}">${name}</button>`).join("");
+$("parts").onclick=(e)=>{ const b=e.target.closest("button"); if(!b) return; jumpToPageNumber(b.dataset.jump); };
+fetch("book.json").then(r=>r.json()).then(data=>{ book=data; $("slider").max=70; renderLangs(); render(); setStatus("Ready. Spanish plays first, then English. Tap Listen."); }).catch(()=>setStatus("The book file did not load. Open this page again in a moment."));
+speechSynthesis.onvoiceschanged=()=>{};
+</script>
+</body>
+</html>
