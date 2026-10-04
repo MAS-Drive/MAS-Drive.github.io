@@ -5,132 +5,84 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1F4B3A">
 <title>Lee conmigo · MÁS Maravillas</title>
-<meta name="description" content="Read-along for I Want a Pet! / ¡Quiero una mascota! Spanish first, English paired, plus major world languages. Included with the book.">
+<meta name="description" content="Read-along for I Want a Pet! / ¡Quiero una mascota! Spanish first, English paired, plus major world languages.">
 <style>
-  :root { --ink:#1c1915; --paper:#f7f1e6; --card:#fffdf8; --line:#e4d9c8; --green:#1f4b3a; --gold:#a9783b; }
-  * { box-sizing:border-box; }
-  body { margin:0; font-family: Georgia, Palatino, serif; background:var(--paper); color:var(--ink); }
-  header, main, footer { width:min(720px, calc(100% - 28px)); margin:0 auto; }
-  header { padding:22px 0 8px; }
-  .brand { display:flex; justify-content:space-between; align-items:baseline; }
-  .series { letter-spacing:.14em; text-transform:uppercase; font-size:12px; color:var(--green); font-family:system-ui,sans-serif; font-weight:700; }
-  h1 { font-size:32px; line-height:1.05; margin:8px 0 0; }
-  h1 span { display:block; font-size:22px; }
-  .sub { font-family:system-ui,sans-serif; font-size:14px; line-height:1.45; color:#4d463d; }
-  button, select { font-family:system-ui,sans-serif; border:1px solid var(--line); background:var(--card); color:var(--ink); border-radius:999px; padding:10px 14px; font-size:14px; }
-  button { cursor:pointer; }
-  button.active, button.primary { background:var(--green); color:white; border-color:var(--green); }
-  button.primary { border-radius:14px; font-size:18px; padding:14px 18px; font-weight:700; }
-  .modes, .langs, .transport, .pager, .parts { font-family:system-ui,sans-serif; }
-  .modes, .langs, .transport, .parts { display:flex; gap:8px; flex-wrap:wrap; }
-  .langs { overflow-x:auto; flex-wrap:nowrap; padding-bottom:6px; }
-  .langs button { white-space:nowrap; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px; margin:12px 0; }
-  .page-kicker { font-family:system-ui,sans-serif; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); font-weight:700; }
-  .spoken { font-size:20px; line-height:1.45; margin:8px 0 0; }
-  .spoken.alt { font-size:17px; color:#4d463d; }
-  .spoken.rtl { direction:rtl; text-align:right; }
-  .pager { display:flex; gap:8px; align-items:center; margin-top:12px; }
-  .pager input { flex:1; accent-color:var(--green); }
-  .status, footer { font-family:system-ui,sans-serif; }
-  .status { font-size:13px; color:#4d463d; min-height:1.2em; margin-top:8px; }
-  footer { font-size:12px; color:#6b6256; padding:8px 0 36px; line-height:1.5; }
-  a { color:#2f6b54; }
-  .parts button { padding:7px 10px; font-size:12px; }
-</style>
-</head>
-<body>
-<header>
-  <div class="brand"><div class="series">MÁS Maravillas · Lee conmigo</div><div aria-hidden="true">∞</div></div>
-  <h1>¡Quiero una mascota! <span>I Want a Pet!</span></h1>
-  <p class="sub">Spanish first, English beside it. Tap Listen, then color the page you are on. Other languages are here for families around the world. Included with the book. Not a separate purchase.</p>
-  <div class="modes" id="modes">
-    <button class="active" data-mode="juntos">Español y English</button>
-    <button data-mode="es">Solo español</button>
-    <button data-mode="en">English only</button>
-    <button data-mode="one">This language</button>
-  </div>
-  <div class="langs" id="langs"></div>
-</header>
-<main>
-  <section class="card">
-    <div class="page-kicker" id="kicker">Page 1 · Open</div>
-    <p class="spoken" id="mainLine"></p>
-    <p class="spoken alt" id="altLine"></p>
-    <div class="transport">
-      <button class="primary" id="play">Listen</button>
-      <button id="pause">Pause</button>
-      <button id="prev">Back</button>
-      <button id="next">Next page</button>
-    </div>
-    <div class="pager"><span id="pageLabel">1</span><input id="slider" type="range" min="1" max="70" value="1"></div>
-    <div class="parts" id="parts"></div>
-    <div class="status" id="status">Tap Listen. Phones will not start audio until you tap.</div>
-  </section>
-  <section class="card">
-    <div class="page-kicker">For families and teachers</div>
-    <p class="spoken" style="font-size:16px">Avery and Parker learn that a pet is not a toy. Care takes patience, practice, questions, teamwork, and a trusted adult. Read together. Color together. Use the activity pages more than once.</p>
-    <p class="spoken alt">Avery y Parker aprenden que una mascota no es un juguete. Cuidar pide paciencia, práctica, preguntas, trabajo en equipo y un adulto de confianza.</p>
-  </section>
-</main>
-<footer>
-  Written and illustrated by Bryan Paul Myers · MÁS Publishing, an imprint of Myers Accelerated Solutions · ISBN 9798177552231 · First edition, 2026 · Release October 27, 2026.<br>
-  Printed Spanish and English are the book. Other languages are listen-along help, not a replacement of the printed text.<br>
-  This page is the QR target: <a href="https://mas-drive.github.io/">mas-drive.github.io</a>
-</footer>
+:root{--ink:#1c1915;--paper:#f7f1e6;--card:#fffdf8;--line:#e4d9c8;--green:#1f4b3a;--gold:#a9783b}
+*{box-sizing:border-box}body{margin:0;font-family:Georgia,Palatino,serif;background:var(--paper);color:var(--ink)}
+header,main,footer{width:min(720px,calc(100% - 28px));margin:0 auto}header{padding:22px 0 8px}
+.brand{display:flex;justify-content:space-between}.series{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--green);font-family:system-ui,sans-serif;font-weight:700}
+h1{font-size:32px;line-height:1.05;margin:8px 0 0}h1 span{display:block;font-size:22px}.sub{font-family:system-ui,sans-serif;font-size:14px;line-height:1.45;color:#4d463d}
+button{font-family:system-ui,sans-serif;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:10px 14px;font-size:14px;cursor:pointer}
+button.active,button.primary{background:var(--green);color:#fff;border-color:var(--green)}button.primary{border-radius:14px;font-size:18px;padding:14px 18px;font-weight:700}
+.modes,.langs,.transport,.parts{display:flex;gap:8px;flex-wrap:wrap;font-family:system-ui,sans-serif}.langs{overflow-x:auto;flex-wrap:nowrap}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin:12px 0}.kicker{font-family:system-ui,sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:700}
+.spoken{font-size:20px;line-height:1.45;margin:8px 0 0}.alt{font-size:17px;color:#4d463d}.rtl{direction:rtl;text-align:right}
+.pager{display:flex;gap:8px;align-items:center;margin-top:12px;font-family:system-ui,sans-serif}.pager input{flex:1;accent-color:var(--green)}
+.status,footer{font-family:system-ui,sans-serif}.status{font-size:13px;color:#4d463d;margin-top:8px}footer{font-size:12px;color:#6b6256;padding:8px 0 36px;line-height:1.5}a{color:#2f6b54}.parts button{padding:7px 10px;font-size:12px}
+</style></head><body>
+<header><div class="brand"><div class="series">MÁS Maravillas · Lee conmigo</div><div>∞</div></div>
+<h1>¡Quiero una mascota! <span>I Want a Pet!</span></h1>
+<p class="sub">Spanish first, English beside it. Tap Listen, then color the page you are on. Other languages are on this page for the story. Included with the book.</p>
+<div class="modes" id="modes"><button class="active" data-mode="juntos">Español y English</button><button data-mode="es">Solo español</button><button data-mode="en">English only</button><button data-mode="one">This language</button></div>
+<div class="langs" id="langs"></div></header>
+<main><section class="card"><div class="kicker" id="kicker"></div><p class="spoken" id="mainLine"></p><p class="spoken alt" id="altLine"></p>
+<div class="transport"><button class="primary" id="play">Listen</button><button id="pause">Pause</button><button id="prev">Back</button><button id="next">Next page</button></div>
+<div class="pager"><span id="pageLabel">1</span><input id="slider" type="range" min="1" max="70" value="1"></div>
+<div class="parts" id="parts"></div><div class="status" id="status">Tap Listen. A phone will not start sound until you tap.</div></section></main>
+<footer>Bryan Paul Myers · MÁS Publishing · ISBN 9798177552231 · October 27, 2026.<br>Printed Spanish and English are the book. Other languages are listen-along help.<br>QR target: <a href="https://mas-drive.github.io/">mas-drive.github.io</a></footer>
 <script>
-const LANGS = [["es","Español","es-MX"],["en","English","en-US"],["eses","Español (España)","es-ES"],["pt","Português","pt-BR"],["fr","Français","fr-FR"],["zh","中文","zh-CN"],["hi","हिन्दी","hi-IN"],["ar","العربية","ar"],["de","Deutsch","de-DE"],["ja","日本語","ja-JP"],["ko","한국어","ko-KR"],["it","Italiano","it-IT"],["vi","Tiếng Việt","vi-VN"],["tl","Filipino","fil-PH"]];
-let book=null, mode="juntos", lang="es", idx=0, playing=false;
+const LANGS=[["es","Español","es-MX"],["en","English","en-US"],["eses","Español (España)","es-ES"],["pt","Português","pt-BR"],["fr","Français","fr-FR"],["zh","中文","zh-CN"],["hi","हिन्दी","hi-IN"],["ar","العربية","ar"],["de","Deutsch","de-DE"],["ja","日本語","ja-JP"],["ko","한국어","ko-KR"],["it","Italiano","it-IT"],["vi","Tiếng Việt","vi-VN"],["tl","Filipino","fil-PH"]];
+const P=[
+{n:1,part:"Open",es:"MÁS Maravillas. Más por descubrir. El inglés y el español pertenecen juntos aquí. ¡Coloréame!",en:"MÁS Maravillas. More to discover. English and Spanish belong together here. Color me!",pt:"MÁS Maravillas. Mais para descobrir. Inglês e espanhol ficam juntos aqui.",fr:"MÁS Maravillas. Plus à découvrir. L'anglais et l'espagnol sont ensemble ici.",zh:"MÁS Maravillas。还有更多等待发现。英语和西班牙语在这里属于彼此。",de:"MÁS Maravillas. Mehr zu entdecken. Englisch und Spanisch gehören hier zusammen.",ar:"ماس مارافياس. المزيد لاكتشافه. الإنجليزية والإسبانية تنتميان إلى هنا معاً."},
+{n:3,part:"Title",es:"¡Quiero una mascota! Una aventura familiar de MÁS Maravillas para colorear y aprender. Escrito e ilustrado por Bryan Paul Myers.",en:"I Want a Pet! A MÁS Maravillas family coloring and activity adventure. Written and illustrated by Bryan Paul Myers.",pt:"Eu quero um animal de estimação! Uma aventura para colorir e aprender.",fr:"Je veux un animal de compagnie ! Une aventure à colorier et à apprendre.",zh:"我想要一只宠物！这是一本家庭涂色和学习书。",de:"Ich will ein Haustier! Ein Familienabenteuer zum Ausmalen und Lernen.",ar:"أريد حيواناً أليفاً! مغامرة عائلية للتلوين والتعلم."},
+{n:4,part:"Dedication",es:"Para mi familia. Aprender no termina cuando crecemos. Se vuelve mejor cuando conservamos la curiosidad para seguir haciendo preguntas.",en:"For my family. Learning does not end when we grow up. It gets better when we stay curious enough to keep asking questions.",pt:"Para a minha família. Aprender não termina quando crescemos.",fr:"Pour ma famille. On n'arrête pas d'apprendre en grandissant.",zh:"献给我的家人。长大以后，学习并不结束。",de:"Für meine Familie. Lernen hört nicht auf, wenn wir erwachsen werden.",ar:"إلى عائلتي. التعلم لا ينتهي عندما نكبر."},
+{n:6,part:"Families",es:"Para familias y maestros. Este libro trata de mucho más que conseguir una mascota. Cuidar a otro ser vivo requiere paciencia, práctica, preguntas, trabajo en equipo y la ayuda de adultos de confianza.",en:"For families and teachers. This book is about more than getting a pet. Caring for another living thing takes patience, practice, questions, teamwork, and help from trusted adults.",pt:"Este livro é sobre mais do que ganhar um animal. Cuidar pede paciência, prática, perguntas e ajuda de adultos.",fr:"Ce livre parle de plus que d'avoir un animal. Prendre soin demande patience, pratique, questions et l'aide d'adultes.",zh:"这本书不只是关于得到一只宠物。照顾生命需要耐心、练习、提问和大人的帮助。",de:"Dieses Buch handelt von mehr als einem Haustier. Pflege braucht Geduld, Übung, Fragen und Hilfe.",ar:"هذا الكتاب عن أكثر من الحصول على حيوان. الرعاية تحتاج صبراً ومساعدة الكبار."},
+{n:7,part:"Journey",es:"Nuestro viaje. Soñar. Ayudar. Explorar. Conectar. Cuidar. Cada paso nos enseña algo nuevo.",en:"Our journey. Dream. Help. Explore. Connect. Care. Every step teaches us something new.",pt:"Nossa jornada. Sonhar. Ajudar. Explorar. Conectar. Cuidar.",fr:"Notre voyage. Rêver. Aider. Explorer. Relier. Prendre soin.",zh:"我们的旅程。梦想。帮助。探索。连接。照顾。",de:"Unsere Reise. Träumen. Helfen. Entdecken. Verbinden. Sorgen.",ar:"رحلتنا. الحلم. المساعدة. الاستكشاف. الصلة. الرعاية."},
+{n:8,part:"How to use",es:"Usa crayones o lápices de colores. Si usas marcadores, coloca una hoja en blanco detrás de la página. Pide ayuda a un adulto cuando la actividad trate sobre la seguridad de los animales. Lean juntos.",en:"Use crayons or colored pencils. If you use markers, place a blank sheet behind the page. Ask a grown-up when an activity talks about animal safety. Read together.",pt:"Use giz de cera. Se usar canetinha, coloque uma folha atrás da página. Peça ajuda a um adulto.",fr:"Utilise des crayons. Avec des feutres, mets une feuille derrière la page. Demande à un adulte.",zh:"用蜡笔或彩色铅笔。用马克笔时，请在页后垫一张白纸。谈到动物安全时，请问大人。",de:"Benutzt Buntstifte. Bei Filzstiften ein leeres Blatt hinter die Seite legen. Fragt eine erwachsene Person.",ar:"استخدموا أقلام التلوين. إذا استخدمتم أقلاماً عريضة، ضعوا ورقة خلف الصفحة. اسألوا كبيراً."},
+{n:9,part:"1 Dream",es:"Página nueve. ¡Quiero una mascota! Quizás nosotros también podamos tener una mascota.",en:"Page nine. I Want a Pet! Maybe we can have a pet too.",pt:"Página nove. Talvez a gente também possa ter um animal.",fr:"Page neuf. Peut-être que nous aussi nous pouvons avoir un animal.",zh:"第九页。也许我们也可以有一只宠物。",de:"Seite neun. Vielleicht können wir auch ein Haustier haben.",ar:"الصفحة التاسعة. ربما يمكننا نحن أيضاً أن نحصل على حيوان."},
+{n:11,part:"1 Dream",es:"¿Qué mascota podríamos tener? Avery y Parker imaginan un cachorro, un gatito, un conejo, un pez, un dragón y un búho. Los grandes sueños comienzan con la imaginación.",en:"What kind of pet could we have? Avery and Parker imagine a puppy, a kitten, a rabbit, a fish, a dragon, and an owl. Big dreams start with imagination."},
+{n:13,part:"1 Dream",es:"¿Podemos tener una mascota? Avery sueña con un dragón. Parker también sueña en grande.",en:"Can we have a pet? Avery dreams of a dragon. Parker dreams big too."},
+{n:15,part:"1 Dream",es:"Una mascota no es un juguete. Necesita comida, agua, un hogar seguro, ejercicio y juego, y amor y cuidado. Una mascota depende de nosotros cada día.",en:"A pet is not a toy. A pet needs food, water, a safe home, exercise and play, and love and care. A pet depends on us every day.",pt:"Um animal não é um brinquedo. Ele depende de nós todos os dias.",fr:"Un animal n'est pas un jouet. Il dépend de nous chaque jour.",zh:"宠物不是玩具。宠物每天都依靠我们。",de:"Ein Haustier ist kein Spielzeug. Es hängt jeden Tag von uns ab.",ar:"الحيوان الأليف ليس لعبة. وهو يعتمد علينا كل يوم."},
+{n:17,part:"2 Help",es:"¿Estamos listos? Hacer la cama. Guardar los juguetes. Poner la mesa. Regar una planta. Lavarse las manos. Los pequeños pasos nos ayudan a crecer.",en:"Are we ready? Make the bed. Put toys away. Set the table. Water a plant. Wash hands. Little steps help us grow."},
+{n:19,part:"2 Help",es:"¡Podemos hacerlo! Las pequeñas tareas ayudan a que nuestro hogar funcione mejor.",en:"We can do it! Little jobs help our home work better."},
+{n:25,part:"2 Help",es:"Los seres vivos necesitan cuidados. Las plantas crecen cuando las cuidamos una y otra vez.",en:"Living things need care. Plants grow when we care for them again and again."},
+{n:29,part:"3 Explore",es:"El gran acuario. Los peces necesitan agua, espacio y cuidado.",en:"The big aquarium. Fish need water, space, and care."},
+{n:31,part:"3 Explore",es:"Aviario para caminar. Las aves necesitan espacio, comida, agua y cuidado amable.",en:"Walk-in aviary. Birds need space, food, water, and gentle care."},
+{n:33,part:"3 Explore",es:"Animales grandes, espacios grandes. Algunos animales necesitan mucho espacio.",en:"Big animals, big spaces. Some animals need lots of room."},
+{n:35,part:"3 Explore",es:"Salón de lagartos. Los reptiles obtienen calor de su entorno. Necesitan el hogar adecuado.",en:"Lizard lounge. Reptiles get warmth from their environment. They need the right kind of home."},
+{n:37,part:"4 Connect",es:"Importa elegir un lugar seguro. No todo lugar es el lugar correcto para una mascota. Haz preguntas. Elige la amabilidad.",en:"A safe choice matters. Not every place is the right place for a pet. Ask questions. Choose kindness."},
+{n:41,part:"4 Connect",es:"Conócelos con calma. Alto. Mira. Pregunta. Deja que el animal también elija su espacio.",en:"Meet them calmly. Stop. Look. Ask. Let the animal choose its space too.",pt:"Conheça-os com calma. Pare. Olhe. Pergunte.",fr:"Fais connaissance calmement. Stop. Regarde. Demande.",zh:"平静地认识它们。停下。看。问。",de:"Begegne ihnen ruhig. Halt. Schau. Frag.",ar:"التقوا بهم بهدوء. توقفوا. انظروا. اسألوا."},
+{n:43,part:"4 Connect",es:"Avery conoce a su dragón. Un dragón barbudo de verdad no respira fuego, pero sigue siendo increíble.",en:"Avery meets her dragon. A real bearded dragon may not breathe fire, but it is still amazing."},
+{n:45,part:"4 Connect",es:"Parker espera tranquilo. El gatito decide acercarse.",en:"Parker waits quietly. The kitten decides to come closer."},
+{n:47,part:"4 Connect",es:"El cachorro va directo hacia papá. Espera... ¿papá también quería un cachorro?",en:"The puppy walks right to Dad. Wait. Did Dad want a puppy too?"},
+{n:49,part:"5 Care",es:"Elegimos juntos. Avery tiene su dragón. Parker tiene su gatito. Papá tiene su cachorro. Toda la familia ayuda a cuidar de los tres.",en:"We choose together. Avery has her dragon. Parker has his kitten. Dad has his puppy. The whole family helps care for all three."},
+{n:53,part:"5 Care",es:"Bienvenidos a casa, poco a poco. Un nuevo hogar puede sentirse emocionante y un poco de miedo al mismo tiempo. Les damos tiempo a todos.",en:"Welcome home, slowly. A new home can feel exciting and scary at the same time. We give everyone time."},
+{n:55,part:"5 Care",es:"El amor se demuestra con acciones. Algunos días son desordenados. Algunos días cansan. El cuidado sigue siendo importante.",en:"Love is something you do. Some days are messy. Some days are tiring. Care still matters."},
+{n:57,part:"5 Care",es:"Solo es el comienzo. Cuanto más aprendemos, más descubrimos.",en:"Only the beginning. The more we learn, the more there is to discover."},
+{n:61,part:"5 Care",es:"Papá por fin tiene el cachorro que esperaba en silencio. Mamá ayuda a todos a recordar: una familia, un solo equipo de cuidados.",en:"Dad finally got the puppy he quietly hoped for. Mom helps everyone remember: one family, one care team."},
+{n:65,part:"5 Care",es:"Travesuras y ocurrencias. La vida no siempre está ordenada, y eso también puede ser parte de la diversión.",en:"Hijinks and shenanigans. Life is not always tidy, and that can be part of the fun."},
+{n:66,part:"5 Care",es:"Encuentra lo imperfecto y bonito. La vida real puede ser desordenada y seguir siendo buena.",en:"Find the imperfect and the beautiful. Real life can be messy and still be good."},
+{n:67,part:"Close",es:"Una nota para mi familia. Gracias por enseñarme que aprender nunca termina. El regalo está en conservar la curiosidad, la humildad y el valor para volver a intentarlo.",en:"A note to my family. Thank you for teaching me that learning never ends. The gift is staying curious, humble, and brave enough to try again."},
+{n:68,part:"Close",es:"Más por descubrir. Sé amable. Sigue aprendiendo. Cuida cada día.",en:"More to discover. Be kind. Keep learning. Care every day.",pt:"Mais para descobrir. Seja gentil. Continue aprendendo. Cuide todos os dias.",fr:"Plus à découvrir. Sois gentil. Continue d'apprendre. Prends soin chaque jour.",zh:"还有更多等待发现。要善良。继续学习。每天照顾。",de:"Mehr zu entdecken. Sei freundlich. Lern weiter. Sorge jeden Tag.",ar:"المزيد لاكتشافه. كن لطيفاً. واصل التعلم. اعتنِ كل يوم."},
+{n:70,part:"Close",es:"Más allá del final feliz, hay nuevos días, nuevas lecciones y nuevas aventuras por venir. Más por descubrir.",en:"Beyond the happily ever after, there are new days, new lessons, and new adventures still to come. More to discover.",pt:"Além do final feliz, há novos dias e novas aventuras.",fr:"Au-delà de la fin heureuse, il y a de nouveaux jours et de nouvelles aventures.",zh:"幸福结局之后，还有新的日子、新的功课和新的冒险。",de:"Jenseits des Happy Ends gibt es neue Tage, neue Lektionen und neue Abenteuer.",ar:"أبعد من النهاية السعيدة، هناك أيام جديدة ومغامرات جديدة."}
+];
+let mode="juntos", lang="es", idx=0, playing=false;
 const $=(id)=>document.getElementById(id);
-function pages(){ return book.pages; }
-function current(){ return pages()[idx]; }
-function bcp(id){ return (LANGS.find(l=>l[0]===id)||LANGS[0])[2]; }
-function setStatus(t){ $("status").textContent=t; }
-function renderLangs(){ $("langs").innerHTML = LANGS.map(([id,label])=>`<button data-lang="${id}" class="${id===lang?"active":""}">${label}</button>`).join(""); }
-function render(){
-  const p=current();
-  $("kicker").textContent=`Page ${p.n} · ${p.part}`;
-  $("pageLabel").textContent=p.n; $("slider").value=p.n;
-  const primary = mode==="en"?"en": mode==="one"?lang:"es";
-  const alt = mode==="juntos"?"en":"";
-  $("mainLine").textContent=p[primary]||p.es;
-  $("mainLine").classList.toggle("rtl", primary==="ar");
-  $("altLine").textContent=alt?p[alt]:"";
-  $("altLine").style.display=alt?"block":"none";
-  document.documentElement.lang=bcp(primary);
-}
-function jumpToPageNumber(n){ const i=pages().findIndex(p=>p.n===Number(n)); idx=i>=0?i:0; render(); }
-function pickVoice(code){
-  const voices=speechSynthesis.getVoices();
-  return voices.find(v=>v.lang&&v.lang.toLowerCase()===code.toLowerCase()) || voices.find(v=>v.lang&&v.lang.toLowerCase().startsWith(code.split("-")[0].toLowerCase())) || null;
-}
-function speak(text, code){
-  return new Promise((resolve)=>{ if(!text) return resolve(); const u=new SpeechSynthesisUtterance(text); u.lang=code; u.rate=0.92; const v=pickVoice(code); if(v) u.voice=v; u.onend=resolve; u.onerror=resolve; speechSynthesis.speak(u); });
-}
-async function playFrom(start){
-  if(!book) return; playing=true; $("play").textContent="Listening";
-  for(let i=start;i<pages().length;i++){
-    if(!playing) break; idx=i; render(); const p=current(); setStatus(`Page ${p.n}. Color while you listen.`);
-    if(mode==="juntos"){ await speak(p.es,"es-MX"); if(!playing) break; await speak(p.en,"en-US"); }
-    else if(mode==="es"){ await speak(p.es,"es-MX"); }
-    else if(mode==="en"){ await speak(p.en,"en-US"); }
-    else { await speak(p[lang]||p.en, bcp(lang)); }
-    if(!playing) break; await new Promise(r=>setTimeout(r,350));
-  }
-  playing=false; $("play").textContent="Listen"; if(playing===false) setStatus("Paused or finished. Tap Listen to continue this page.");
-}
-$("modes").onclick=(e)=>{ const b=e.target.closest("button"); if(!b) return; mode=b.dataset.mode; [...$("modes").children].forEach(x=>x.classList.toggle("active", x===b)); render(); };
-$("langs").onclick=(e)=>{ const b=e.target.closest("button"); if(!b) return; lang=b.dataset.lang; mode=(lang==="es")?"juntos":(lang==="en"?"en":"one"); [...$("modes").children].forEach(x=>x.classList.toggle("active", x.dataset.mode===mode)); renderLangs(); render(); };
-$("play").onclick=()=>{ speechSynthesis.cancel(); playFrom(idx); };
-$("pause").onclick=()=>{ playing=false; speechSynthesis.cancel(); $("play").textContent="Listen"; setStatus("Paused. Tap Listen to continue this page."); };
-$("next").onclick=()=>{ if(idx<pages().length-1) idx++; render(); };
-$("prev").onclick=()=>{ if(idx>0) idx--; render(); };
-$("slider").oninput=()=>jumpToPageNumber($("slider").value);
-const parts=[["Open",1],["Dream",9],["Help",17],["Explore",29],["Connect",37],["Care",49],["Close",67]];
-$("parts").innerHTML=parts.map(([name,n])=>`<button data-jump="${n}">${name}</button>`).join("");
-$("parts").onclick=(e)=>{ const b=e.target.closest("button"); if(!b) return; jumpToPageNumber(b.dataset.jump); };
-fetch("book.json").then(r=>r.json()).then(data=>{ book=data; $("slider").max=70; renderLangs(); render(); setStatus("Ready. Spanish plays first, then English. Tap Listen."); }).catch(()=>setStatus("The book file did not load. Open this page again in a moment."));
-speechSynthesis.onvoiceschanged=()=>{};
-</script>
-</body>
-</html>
+function bcp(id){return (LANGS.find(l=>l[0]===id)||LANGS[0])[2]}
+function textFor(p,id){return p[id]||p.en||p.es}
+function renderLangs(){$("langs").innerHTML=LANGS.map(([id,label])=>`<button data-lang="${id}" class="${id===lang?"active":""}">${label}</button>`).join("")}
+function render(){const p=P[idx]; $("kicker").textContent=`Page ${p.n} · ${p.part}`; $("pageLabel").textContent=p.n; $("slider").value=p.n; const primary=mode==="en"?"en":mode==="one"?lang:"es"; const alt=mode==="juntos"?"en":""; $("mainLine").textContent=textFor(p,primary); $("mainLine").classList.toggle("rtl", primary==="ar"); $("altLine").textContent=alt?textFor(p,alt):""; $("altLine").style.display=alt?"block":"none";}
+function jump(n){const i=P.findIndex(p=>p.n===Number(n)); idx=i>=0?i:0; render()}
+function pickVoice(code){const voices=speechSynthesis.getVoices(); return voices.find(v=>v.lang&&v.lang.toLowerCase()===code.toLowerCase())||voices.find(v=>v.lang&&v.lang.toLowerCase().startsWith(code.split("-")[0].toLowerCase()))||null}
+function speak(text,code){return new Promise(resolve=>{if(!text) return resolve(); const u=new SpeechSynthesisUtterance(text); u.lang=code; u.rate=0.92; const v=pickVoice(code); if(v) u.voice=v; u.onend=resolve; u.onerror=resolve; speechSynthesis.speak(u);})}
+async function playFrom(start){playing=true; $("play").textContent="Listening"; for(let i=start;i<P.length;i++){ if(!playing) break; idx=i; render(); const p=P[i]; $("status").textContent=`Page ${p.n}. Color while you listen.`; if(mode==="juntos"){await speak(p.es,"es-MX"); if(!playing) break; await speak(p.en,"en-US");} else if(mode==="es"){await speak(p.es,"es-MX");} else if(mode==="en"){await speak(p.en,"en-US");} else {await speak(textFor(p,lang), bcp(lang));} if(!playing) break; await new Promise(r=>setTimeout(r,350)); } playing=false; $("play").textContent="Listen"; $("status").textContent="Paused or finished. Tap Listen to continue this page."; }
+$("modes").onclick=(e)=>{const b=e.target.closest("button"); if(!b) return; mode=b.dataset.mode; [...$("modes").children].forEach(x=>x.classList.toggle("active",x===b)); render()};
+$("langs").onclick=(e)=>{const b=e.target.closest("button"); if(!b) return; lang=b.dataset.lang; mode=lang==="es"?"juntos":lang==="en"?"en":"one"; [...$("modes").children].forEach(x=>x.classList.toggle("active",x.dataset.mode===mode)); renderLangs(); render()};
+$("play").onclick=()=>{speechSynthesis.cancel(); playFrom(idx)};
+$("pause").onclick=()=>{playing=false; speechSynthesis.cancel(); $("play").textContent="Listen"; $("status").textContent="Paused.";};
+$("next").onclick=()=>{if(idx<P.length-1) idx++; render()};
+$("prev").onclick=()=>{if(idx>0) idx--; render()};
+$("slider").oninput=()=>jump($("slider").value);
+[["Open",1],["Dream",9],["Help",17],["Explore",29],["Connect",37],["Care",49],["Close",67]].forEach(([name,n])=>{const b=document.createElement("button"); b.textContent=name; b.onclick=()=>jump(n); $("parts").appendChild(b)});
+renderLangs(); render(); $("status").textContent="Ready. Spanish plays first, then English. Tap Listen.";
+</script></body></html>
