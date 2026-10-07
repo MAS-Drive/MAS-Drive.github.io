@@ -134,7 +134,8 @@ function pickVoice(code){
     || voices.find(v => (v.lang||"").toLowerCase().startsWith(want.split("-")[0]))
     || null;
 }
-function speak(text, code){
+const savedAudio = new Audio();
+function deviceSpeak(text, code){
   return new Promise((resolve) => {
     if (!text) return resolve();
     const chunks = text.match(/[^.!?。！？]+[.!?。！？]?/g) || [text];
@@ -153,6 +154,20 @@ function speak(text, code){
     next();
   });
 }
+function speak(text, code, pageN, langId){
+  return new Promise((resolve) => {
+    if (!text) return resolve();
+    const n = String(pageN).padStart(2, "0");
+    savedAudio.pause();
+    savedAudio.src = `audio/p${n}-${langId}.mp3`;
+    savedAudio.playbackRate = Number($("rate").value) || 0.92;
+    let settled = false;
+    const done = () => { if (!settled){ settled = true; resolve(); } };
+    savedAudio.onended = done;
+    savedAudio.onerror = () => { deviceSpeak(text, code).then(done); };
+    savedAudio.play().catch(() => { deviceSpeak(text, code).then(done); });
+  });
+}
 async function playFrom(start){
   if (!book) return;
   playing = true;
@@ -163,15 +178,15 @@ async function playFrom(start){
     const p = current();
     setStatus(`Page ${p.n}. Color while you listen.`);
     if (mode === "juntos"){
-      await speak(p.es, "es-MX");
+      await speak(p.es, "es-MX", p.n, "es");
       if (!playing) break;
-      await speak(p.en, "en-US");
+      await speak(p.en, "en-US", p.n, "en");
     } else if (mode === "es"){
-      await speak(p.es, "es-MX");
+      await speak(p.es, "es-MX", p.n, "es");
     } else if (mode === "en"){
-      await speak(p.en, "en-US");
+      await speak(p.en, "en-US", p.n, "en");
     } else {
-      await speak(p[lang] || p.en, bcp(lang));
+      await speak(p[lang] || p.en, bcp(lang), p.n, lang);
     }
     if (!playing) break;
     await new Promise(r => setTimeout(r, 280));
@@ -194,7 +209,7 @@ $("langs").addEventListener("click", (e) => {
   renderLangs(); render();
 });
 $("play").onclick = () => { speechSynthesis.cancel(); playFrom(idx); };
-$("pause").onclick = () => { playing = false; speechSynthesis.cancel(); $("play").textContent = "Listen"; setStatus("Paused. Tap Listen to continue this page."); };
+$("pause").onclick = () => { playing = false; speechSynthesis.cancel(); savedAudio.pause(); $("play").textContent = "Listen"; setStatus("Paused. Tap Listen to continue this page."); };
 $("next").onclick = () => { if (idx < pages().length - 1){ idx++; render(); } };
 $("prev").onclick = () => { if (idx > 0){ idx--; render(); } };
 $("slider").oninput = () => jumpToPageNumber($("slider").value);
